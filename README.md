@@ -38,7 +38,7 @@ lulzcannon.fire( config, function( stop )
 	"data" : 
 	[
         "some data 1",
-        "some data 2
+        "some data 2"
 	]
 }
 
