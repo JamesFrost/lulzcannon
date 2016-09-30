@@ -1,0 +1,31 @@
+{
+  "name": "lulzcannon",
+  "version": "0.0.1",
+  "description": "RabbitMQ stress tester",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "James Frost <hello@jamesfrost.me> (http://jamesfrost.me)",
+  "license": "MIT",
+  "dependencies": {
+    "amqp": "0.2.6",
+    "async": "2.0.1",
+    "cwd": "0.10.0",
+    "temporal": "0.5.0"
+  },
+  "bin": {
+    "lulzcannon": "bin/lulzcannon.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JamesFrost/lulzcannon"
+  },
+  "keywords": [
+    "rabbitmq",
+    "rabbit",
+    "stress",
+    "tester"
+  ]
+}
