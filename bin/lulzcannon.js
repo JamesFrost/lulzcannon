@@ -1,14 +1,25 @@
 #!/usr/bin/env node
+if( process.argv[ 2 ] === undefined )
+{
+	console.error( "\nNo config file specified.\n" );
+	process.exit( 1 );
+}
+
 const _fs = require( 'fs' );
 const _cwd = require('cwd')();
-const _lulcannon = require( '../index.js' );
+const _lulzcannon = require( '../index.js' );
+
+const _updateNotifier = require( 'update-notifier' );
+const pkg = require( __dirname + '/../package.json' );
+
+_updateNotifier( { pkg } ).notify();
 
 const _configFile = _cwd + '/' + process.argv[ 2 ];
 
 const _banner = _fs.readFileSync( __dirname + '/banner.txt', 'utf8' );
 const _config = JSON.parse( _fs.readFileSync( _configFile, 'utf8' ) );
 
-_lulcannon.fire( _config );
+_lulzcannon.fire( _config );
 
 console.log( _banner );
 console.log( "\n" );
