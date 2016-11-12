@@ -2,9 +2,11 @@ const _temporal = require( 'temporal' );
 const _amqp = require( 'amqp' );
 const _async = require( 'async' );
 
+const _generator = require( './src/data-generator.js' );
+
 exports.fire = function( _config, callback )
 {
-	const _rate = _config.rate === 0 ? 1 : Math.round( (1000 / _config.rate) * _config.concurrent );
+	const _rate = _config.rate === 0 ? 1 : Math.round( ( 1000 / _config.rate ) * _config.concurrent );
 
 	const _connection = _amqp.createConnection( _config.connection );
 
@@ -14,7 +16,7 @@ exports.fire = function( _config, callback )
 		{
 			const data = _config.data[ Math.floor( Math.random() * _config.data.length ) ];
 
-			_connection.publish( _config.queue, data );
+			_connection.publish( _config.queue, _generator( data ) );
 		});
 	};	
 
