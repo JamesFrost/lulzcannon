@@ -3,7 +3,31 @@ const _dateFormat = require('date-format');
 
 const _templateRegex = /{{[^}]+}}/g;
 
-module.exports = function( data )
+exports.hasDynamicContent = function( data )
+{
+	switch( typeof data ) 
+	{
+		case 'object':
+			
+			var isDynamic = false;
+
+			for( var index in data )
+			{
+				if( exports.hasDynamicContent( data[ index ] ) )
+					isDynamic = true;
+			}
+
+			return isDynamic;
+
+		case 'string':
+			return _templateRegex.test( data );
+
+		default:
+			return false;
+	}
+};
+
+exports.generate = function( data )
 {
 	switch( typeof data ) 
 	{
@@ -12,7 +36,7 @@ module.exports = function( data )
 	    	var copy = {};
 
 	    	for( var index in data )
-	    		copy[ index ] = module.exports( data[ index ] );
+	    		copy[ index ] = exports.generate( data[ index ] );
 
 	    	return copy;
 

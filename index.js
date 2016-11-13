@@ -10,13 +10,20 @@ exports.fire = function( _config, callback )
 
 	const _connection = _amqp.createConnection( _config.connection );
 
+	const _dynamicDataMap = _config.data.map( _generator.hasDynamicContent );
+
 	const _stressTestLoop = function()
 	{
 		return _temporal.loop(_rate, function() 
 		{
-			const data = _config.data[ Math.floor( Math.random() * _config.data.length ) ];
+			const index = Math.floor( Math.random() * _config.data.length );
+			
+			const data = _config.data[ index ];
 
-			_connection.publish( _config.queue, _generator( data ) );
+			if( _dynamicDataMap[ index ] )
+				_connection.publish( _config.queue, _generator.generate( data ) );
+			else
+				_connection.publish( _config.queue, data );
 		});
 	};	
 
