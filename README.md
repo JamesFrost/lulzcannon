@@ -1,4 +1,4 @@
-# lulzcannon :trollface: <img src="https://travis-ci.org/JamesFrost/lulzcannon.svg?branch=master">
+# lulzcannon <img src="https://travis-ci.org/JamesFrost/lulzcannon.svg?branch=master">
 Simple RabbitMQ stress tester in Nodejs
 
 ```bash
