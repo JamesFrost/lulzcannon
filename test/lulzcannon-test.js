@@ -12,11 +12,7 @@ describe('lulzcannon', function()
 
 	before(function()
 	{
-		_mockery.enable({
-			warnOnReplace: false,
-			warnOnUnregistered: false,
-			useCleanCache: true
-		});
+		_mockery.enable({ warnOnReplace: false, warnOnUnregistered: false, useCleanCache: true });
 
 	 	connectionApi = { on: function (event, fn) { fn(); }, publish: function() {} };
 	    connectionMock = _sinon.mock( connectionApi );
