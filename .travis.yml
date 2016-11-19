@@ -4,5 +4,4 @@ node_js:
   - "5"
   - "6"
   - "node"
-  - "iojs"
 before_install: npm install -g mocha
