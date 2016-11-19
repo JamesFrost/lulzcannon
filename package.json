@@ -15,7 +15,9 @@
     "async": "2.0.1",
     "cwd": "0.10.0",
     "date-format": "0.0.2",
+    "mockery": "^2.0.0",
     "parse-numeric-range": "0.0.2",
+    "sinon": "^1.17.6",
     "temporal": "0.5.0",
     "update-notifier": "1.0.2"
   },

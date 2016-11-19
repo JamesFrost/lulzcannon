@@ -17,7 +17,7 @@ exports.fire = function( _config, callback )
 		return _temporal.loop(_rate, function() 
 		{
 			const index = Math.floor( Math.random() * _config.data.length );
-			
+
 			const data = _config.data[ index ];
 
 			if( _dynamicDataMap[ index ] )
